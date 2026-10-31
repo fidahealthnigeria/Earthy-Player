@@ -7,4 +7,11 @@
     { "url": "images/African Image.jpeg", "caption": "African Image" },
     { "url": "images/DNA Paternity.jpg", "caption": "DNA Paternity" }
   ]
+  "flowers": [
+    { "url": "images/IMG_5558.JPG", "caption": "Cherry blossom tree in front of a brick house on a quiet residential street" },
+    { "url": "images/1000103313.jpg", "caption": "Large autumn tree with orange leaves beside a road, fallen leaves covering the grass" },
+    { "url": "images/1000091744.jpg", "caption": "Dense green foliage hanging over still water" },
+    { "url": "images/1000091743.jpg", "caption": "Tall sunflower plant with yellow blooms growing beside a stream" }
+  ]
+  
 }
