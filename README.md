@@ -24,6 +24,6 @@ The player itself remains free.
 
 ## License
 The code is released under the MIT License.  
-See the [LICENSE](https://github.com/yourusername/earthy-player/blob/main/LICENSE) file for details.
+See the [LICENSE](https://github.com/fidahealthnigeria/Earthy-Version-2/blob/3066824964fc2f3f492624071fd000b57ceb342f/License) file for details.
 
 Photo bundles and any separately sold images remain the property of their creator.
