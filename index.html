@@ -210,14 +210,8 @@
             </div>
         </div>
 
-        <div class="suggestions">
+        <div class="suggestions" id="suggestions">
             Quick categories:
-            <button class="small" data-cat="Dream Places">Dream Places</button>
-            <button class="small" data-cat="Future Self">Future Self</button>
-            <button class="small" data-cat="Calm Nature">Calm Nature</button>
-            <button class="small" data-cat="Goals">Goals</button>
-            <button class="small" data-cat="Home I Want">Home I Want</button>
-            <button class="small" data-cat="Peaceful Moments">Peaceful Moments</button>
         </div>
         <div class="storage-info" id="storageInfo">Checking storage…</div>
     </div>
@@ -414,6 +408,28 @@ async function updateStorageInfo() {
     }
 }
 
+function updateQuickCategories() {
+    const container = document.getElementById("suggestions");
+    container.innerHTML = "Quick categories: ";
+    
+    const keys = Object.keys(slidesData).filter(k => k !== "demo").sort();
+    if (!keys.length) {
+        container.innerHTML += `<span style="opacity:0.6">(none yet)</span>`;
+        return;
+    }
+    
+    keys.forEach(key => {
+        const btn = document.createElement("button");
+        btn.className = "small";
+        btn.textContent = key.charAt(0).toUpperCase() + key.slice(1);
+        btn.onclick = () => {
+            document.getElementById("newCatName").value = key;
+            document.getElementById("newCatName").focus();
+        };
+        container.appendChild(btn);
+    });
+}
+
 async function loadJSON() {
     try {
         const res = await fetch("pictures.json");
@@ -431,7 +447,6 @@ async function loadJSON() {
     mergeData();
     loadCategories();
 
-    // Restore audio if saved
     const savedAudio = await loadAudio();
     if (savedAudio) {
         audio.src = URL.createObjectURL(savedAudio);
@@ -479,6 +494,7 @@ function loadCategories() {
     if (!category || !keys.includes(category)) category = keys[0];
     catSelect.value = category;
     build();
+    updateQuickCategories();
 }
 
 function build() {
@@ -592,6 +608,7 @@ document.getElementById("addImages").onclick = async () => {
     document.getElementById("imageFiles").value = "";
     document.getElementById("newCatName").value = "";
     updateStorageInfo();
+    updateQuickCategories();
 };
 
 document.getElementById("clearCat").onclick = async () => {
@@ -610,13 +627,6 @@ function fileToDataURL(file) {
         reader.readAsDataURL(file);
     });
 }
-
-document.querySelectorAll(".suggestions button").forEach(btn => {
-    btn.onclick = () => {
-        document.getElementById("newCatName").value = btn.dataset.cat;
-        document.getElementById("newCatName").focus();
-    };
-});
 
 // Bundle unlock
 document.getElementById("unlockBundle").onclick = async () => {
