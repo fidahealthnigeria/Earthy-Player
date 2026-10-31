@@ -24,6 +24,6 @@ The player itself remains free.
 
 ## License
 The code is released under the MIT License.  
-See the [LICENSE](LICENSE) file for details.
+See the [https://github.com/fidahealthnigeria/Earthy-Version-2/blob/b17daaa25acafca131ab1edd967874380137e96e/License](LICENSE) file for details.
 
 Photo bundles and any separately sold images remain the property of their creator.
